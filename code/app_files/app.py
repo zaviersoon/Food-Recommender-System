@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
+import plotly
 import plotly.graph_objects as go
 import plotly.express as px
 from recommenders.models.lightfm.lightfm_utils import similar_items
@@ -15,16 +16,16 @@ st.sidebar.title("Singapore Central Restaurant Recommendation Platform")
 st.sidebar.subheader("DSI Capstone Project")
 st.sidebar.markdown("By: Zavier Soon")
 
-buildings = pd.read_pickle('buildings.pkl')
-restaurant = pd.read_pickle('restaurant.pkl')
+buildings = pd.read_pickle('code/app_files/buildings.pkl')
+restaurant = pd.read_pickle('code/app_files/restaurant.pkl')
 
 buildings_list = list(buildings['address'].sort_values(ascending = True))
 restaurant_list = list(restaurant['name'].sort_values(ascending = True))
 
-lightfm_model = pickle.load(open('lightfm_model.pkl', 'rb'))
-item_features = pickle.load(open('item_feature.pkl', 'rb'))
+lightfm_model = pickle.load(open('code/app_files/lightfm_model.pkl', 'rb'))
+item_features = pickle.load(open('code/app_files/item_feature.pkl', 'rb'))
 
-clustering_model = pickle.load(open('clustering_model.pkl', 'rb'))
+clustering_model = pickle.load(open('code/app_files/clustering_model.pkl', 'rb'))
 
 def main():
     model_type = st.sidebar.selectbox('Recommendation Type', ['','Location-Based Recommender (New User)', 'Similar-Restaurant Recommender (New User/Existing User)']
