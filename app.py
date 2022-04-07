@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
+import plotly
 import plotly.graph_objects as go
 import plotly.express as px
 from recommenders.models.lightfm.lightfm_utils import similar_items
