@@ -54,3 +54,6 @@ Lastly, to solve the user cold-start problem, a Location-Based Recommendation Sy
 2. https://github.com/microsoft/recommenders/blob/main/examples/02_model_hybrid/lightfm_deep_dive.ipynb
 3. https://nycdatascience.com/blog/student-works/yelp-recommender-part-1/
 4. https://making.lyst.com/lightfm/docs/index.html
+
+### Apps
+1. https://share.streamlit.io/zaviersoon/food-recommender-system/app.py

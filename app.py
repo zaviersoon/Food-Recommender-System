@@ -28,11 +28,11 @@ item_features = pickle.load(open('code/app_files/item_feature.pkl', 'rb'))
 clustering_model = pickle.load(open('code/app_files/clustering_model.pkl', 'rb'))
 
 def main():
-    model_type = st.sidebar.selectbox('Recommendation Type', ['','Location-Based Recommender (New User)', 'Similar-Restaurant Recommender (New User/Existing User)']
+    model_type = st.sidebar.selectbox('Recommendation Type', ['','Location-Based Recommender', 'Similar-Restaurant Recommender']
                                       , format_func = lambda x: 'Select an option' if x == '' else x)
     
-    if model_type == 'Location-Based Recommender (New User)':
-        st.subheader('Location-Based Recommendation System')
+    if model_type == 'Location-Based Recommender':
+        st.subheader('Location-Based Recommendation System (New User)')
         Location = st.selectbox('📍Please enter your current location', [''] + buildings_list, format_func = lambda x: 'Input current location' if x == '' else x)
         PriceLevel = st.selectbox('🏷️ Price',  ('','Inexpensive', 'Moderate', 'Expensive'), format_func = lambda x: 'Select an option' if x == '' else x)
         
@@ -73,8 +73,8 @@ def main():
                     st.plotly_chart(fig_table, use_container_width=True)
             
             
-    if model_type == 'Similar-Restaurant Recommender (New User/Existing User)':
-        st.subheader('Similar-Restaurant Recommendation System')
+    if model_type == 'Similar-Restaurant Recommender':
+        st.subheader('Similar-Restaurant Recommendation System (New User/Existing User)')
         st.markdown("Please select a restaurant similar to the one you'd like to visit")
         Restaurant = st.selectbox('🍴Restaurant Name', [''] + restaurant_list, format_func = lambda x: 'Select an option' if x == '' else x)
         PriceLevel = st.selectbox('🏷️ Price',  ('','Inexpensive', 'Moderate', 'Expensive'), format_func = lambda x: 'Select an option' if x == '' else x)
